@@ -10,6 +10,20 @@ module head(thick) {
 	cube_width = 8;
 	cube_depth = 11.52;
 
+	translate([-10,0,0])
+    rotate([0,0,27])
+    cube([11.50,leg_thick,head_thick]);
+	
+	hull(){
+	translate([-9.9,0.1,0])
+	cylinder(r=0.1, h=thick);
+	translate([-3,-2,0])
+	cylinder(r=0.1, h=thick);
+	translate([0,5.4,0])
+	cylinder(r=0.1, h=thick);
+	translate([-0.1,3.4,0])
+	#cylinder(r=0.1, h=thick);
+	}
 
 	difference(){
 		hull (){
@@ -45,11 +59,8 @@ module leg(t) {
 translate([10,0,0])
 head(head_thick);
 
-translate([0,5,head_thick])
-rotate([90,0,25]){
+translate([0,0,head_thick+24.59])
+rotate([-90,0,27])
 	leg(leg_thick);
-}
 
 
-leg(leg_thick);
-cylinder(h=head_thick, r=20);
